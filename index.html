@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>little foxy Note</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top, #fff2f0, #fce4ec);
+      font-family: 'Comic Sans MS', cursive;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .letter-message {
+      margin-top: 30px;
+      padding: 15px 20px;
+      background: #fff5fa;
+      border: 2px dashed #ff8ab1;
+      border-radius: 12px;
+      font-size: 18px;
+      color: #7a3b50;
+      max-width: 80%;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .scene {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .puppy {
+      width: 220px;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .note {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      display: none;
+    }
+
+    .message {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 140px;
+      font-size: 14px;
+      color: #5c2a39;
+      display: none;
+      text-align: center;
+      font-weight: bold;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="letter-message">
+  Hey there... I think this little foxy has something to tell you.  
+  He’s been wagging his tail nonstop... maybe try tapping on him? 💌
+</div>
+
+<div class="scene">
+  <img src="puppy.png" alt="Cute Puppy" class="puppy" onclick="showNote()" />
+  <img src="note.png" alt="Note" class="note" id="noteImage" />
+  <div class="message" id="messageBox">You carry light inside you, even when you can’t see it,<br> Others feel it. ✨💌</div>
+</div>
+
+<script>
+  function showNote() {
+    const note = document.getElementById('noteImage');
+    const msg = document.getElementById('messageBox');
+    note.style.display = 'block';
+    msg.style.display = 'block';
+
+    setTimeout(() => {
+      msg.style.display = 'none';
+      note.style.display = 'none';
+    }, 5000);
+  }
+</script>
+
+</body>
+</html>
